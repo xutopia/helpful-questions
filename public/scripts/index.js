@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // // The Firebase SDK is initialized and available here!
   //
   // firebase.auth().onAuthStateChanged(user => { });
-  // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
   // firebase.messaging().requestPermission().then(() => { });
   // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
   //
@@ -19,11 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   firebase.initializeApp(config);
 
+  // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+
   try {
     var ref = firebase.database().ref();
-    ref.on("value", function(snapshot){
-      document.getElementById('render').innerHTML = JSON.stringify(snapshot.val(), null, 2);
-    });
+    ref.once("value")
+      .then(function(snapshot) {
+        document.getElementById('render').innerHTML = JSON.stringify(snapshot.val(), null, 2);
+      });
   } catch (err) {
     console.error(err);
   }
