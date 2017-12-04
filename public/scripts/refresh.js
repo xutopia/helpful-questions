@@ -15,12 +15,24 @@
       headers: headers,
     }
 
-    fetch(url, options).then(function(response) {
-      renderQuestions(response);
-    });
+    fetch(url, options)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        renderQuestions(data);
+      })
+
   }
 
   function renderQuestions(questions) {
     console.log('questions obj: ', questions);
+    for (var i = 0; i < questions.length; i += 1) {
+      var card = app.cardTemplate.cloneNode(true);
+      card.classList.remove('cardTemplate');
+      card.querySelector('.op-container').textContent = questions[i].op;
+      card.removeAttribute('hidden');
+      app.container.appendChild(card);
+    }
   }
 })();

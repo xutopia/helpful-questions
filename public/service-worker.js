@@ -1,8 +1,8 @@
 var cacheName = 'helpful-questions';
 var dataCacheName = 'weatherData-v1';
 var filesToCache = [
-  '/',
-  '/index.html',
+  // '/',
+  // '/index.html',
   '/scripts/index.js',
   '/scripts/add.js',
   '/scripts/refresh.js',
