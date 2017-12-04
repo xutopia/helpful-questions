@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  document.getElementById('add-btn').addEventListener('click', function() {
-    writeUserData('testing');
+  document.getElementById('addQuestion').addEventListener('click', function() {
     console.log('inside the add script, looking at writeUserData');
+    // writeUserData('testing');
   })
 
   function writeUserData(question) {
