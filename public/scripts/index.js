@@ -1,15 +1,7 @@
 (function() {
-  // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-  // The Firebase SDK is initialized and available here!
-  //
-  // firebase.auth().onAuthStateChanged(user => { });
-  // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-  // firebase.messaging().requestPermission().then(() => { });
-  // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-  //
-  // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-  // Initialize Firebase
+  'use strict';
 
+  // register service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
       .then(function() {
@@ -20,6 +12,7 @@
       })
   }
 
+  // connect to firebase database
   try {
     var config = {
       apiKey: "AIzaSyAp1C0ZZpCIaF2bOeN2Mo4i7XXzFlcndZA",
@@ -30,8 +23,6 @@
       messagingSenderId: "308388871177"
     };
     firebase.initializeApp(config);
-    var connectionInfo = navigator.connection;
-    console.log('connectionInfo: ', connectionInfo);
   } catch (e) {
     console.error(e);
   }

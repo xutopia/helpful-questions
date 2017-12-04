@@ -7,11 +7,11 @@
     <link rel="stylesheet" type="text/css" href="styles/inline.css">
 
     <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/4.7.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <!-- <script defer src="/__/firebase/4.7.0/firebase-auth.js"></script> -->
     <script defer src="/__/firebase/4.7.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/4.7.0/firebase-messaging.js"></script>
+    <!-- <script defer src="/__/firebase/4.7.0/firebase-messaging.js"></script> -->
     <!-- <script defer src="/__/firebase/4.7.0/firebase-storage.js"></script> -->
     <!-- initialize the SDK after all desired features are loaded -->
     <!-- <script defer src="/__/firebase/init.js"></script> -->
@@ -26,6 +26,15 @@
     <main class="main">
       <div id="render">
       </div>
+
+      <div class="card cardTemplate" hidden>
+        <div class="op-container">
+          OP:
+        </div>
+        <div class="question-container">
+          Question:
+        </div>
+      </div>
     </main>
 
     <div class="loader">
@@ -34,7 +43,15 @@
       </svg>
     </div>
 
-    <script src="scripts/index.js" type="application/javascript" async defer></script>
+    <script type='text/javascript'>
+      var app = {
+        isLoading: true,
+        questions: [],
+        spinner: document.querySelector('.loader'),
+        cardTemplate: document.querySelector('.cardTemplate')
+      };
+    </script>
+    <script src="scripts/index.js" type="application/javascript" defer async></script>
     <script src="scripts/add.js" async></script>
     <script src="scripts/refresh.js" async></script>
   </body>
