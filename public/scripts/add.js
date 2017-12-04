@@ -7,7 +7,7 @@
   })
 
   function writeUserData(question) {
-    firebase.database().ref('/').push('test2')
+    firebase.database().ref('/').push()
       .then(function() {
         console.log('test2 saved to db');
       })

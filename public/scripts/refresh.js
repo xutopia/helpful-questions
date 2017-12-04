@@ -4,7 +4,6 @@
   document.getElementById('refreshQuestion').addEventListener('click', fetchQuestions);
 
   function fetchQuestions(question) {
-    console.log('inside fetchQuestions');
     var ref = firebase.database().ref();
     ref.once("value")
       .then(function(snapshot) {
@@ -12,9 +11,3 @@
       });
   }
 })();
-
-
-// function() {
-//   writeUserData('testing');
-//   console.log('inside the add script, looking at writeUserData');
-// }
