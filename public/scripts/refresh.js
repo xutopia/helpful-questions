@@ -3,7 +3,7 @@
 
   document.getElementById('refreshQuestion').addEventListener('click', fetchQuestions);
 
-  function fetchQuestions(question) {
+  function fetchQuestions() {
     console.log('fetchQuestions method');
     var url = 'https://helpful-questions-3a0dd.firebaseio.com/q.json'
 
@@ -27,12 +27,15 @@
 
   function renderQuestions(questions) {
     console.log('questions obj: ', questions);
-    for (var i = 0; i < questions.length; i += 1) {
-      var card = app.cardTemplate.cloneNode(true);
-      card.classList.remove('cardTemplate');
-      card.querySelector('.op-container').textContent = questions[i].op;
-      card.removeAttribute('hidden');
-      app.container.appendChild(card);
+    if (document.getElementsByClassName('card').length < Object.keys(questions).length) {
+      for (let question in questions) {
+        var card = app.cardTemplate.cloneNode(true);
+        card.classList.remove('cardTemplate');
+        card.querySelector('.op').textContent = questions[question].name;
+        card.querySelector('.question').textContent = questions[question].question;
+        card.removeAttribute('hidden');
+        app.container.prepend(card);
+      }
     }
   }
 })();

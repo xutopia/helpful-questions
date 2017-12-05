@@ -29,13 +29,41 @@
 
       <div class="card cardTemplate" hidden>
         <div class="op-container">
-          OP:
+          <p>
+            <strong>User:</strong>
+          </p>
+          <span class="op"></span>
         </div>
+        <br />
         <div class="question-container">
-          Question:
+          <p>
+            <strong>Question: </strong>
+          </p>
+          <div class="question"></div>
         </div>
       </div>
     </main>
+
+    <div class="dialog-container">
+      <div class="dialog">
+        <div class="dialog-title">
+          Share a new question
+        </div>
+        <div class="dialog-body">
+          <form id="addForm" onsubmit="return false;">
+            Name:<br />
+            <input id="nameInput" type="text" name="Name" placeholder="Enter your name" />
+            <br />
+            <br />
+            Question: <br />
+            <textarea id="questionInput" rows="8" name="question" cols="40"></textarea>
+            <br />
+            <button id="submitAdd" type="submit">Post Question</button>
+            <button id="cancelAdd" type="reset" value="cancel">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <div class="loader">
       <svg viewBox="0 0 32 32" width="52" height="52">
@@ -49,11 +77,12 @@
         questions: [],
         spinner: document.querySelector('.loader'),
         cardTemplate: document.querySelector('.cardTemplate'),
-        container: document.querySelector('.main')
+        container: document.querySelector('.main'),
+        addDialog: document.querySelector('.dialog-container')
       };
     </script>
     <script src="scripts/index.js" type="application/javascript" defer async></script>
-    <script src="scripts/add.js" async></script>
     <script src="scripts/refresh.js" async></script>
+    <script src="scripts/add.js" async></script>
   </body>
 </html>
