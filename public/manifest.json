@@ -10,7 +10,7 @@
       "sizes": "256x256",
       "type": "image/png"
     }],
-  "start_url": "/index.html",
+  "start_url": "https://helpful-questions-3a0dd.firebaseapp.com/",
   "display": "standalone",
   "background_color": "#EF4035",
   "theme_color": "#B31B1B"
