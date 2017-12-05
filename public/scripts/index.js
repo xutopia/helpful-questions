@@ -8,7 +8,7 @@
         console.log('Service Worker registered');
       })
       .catch(function(err) {
-        console.log('error in service worker registration: ', err)
+        console.error(err)
       })
   }
 
@@ -30,11 +30,9 @@
 
   // init
   if (localStorage.questions) {
-    console.log('inside the init if, JSON parse:', JSON.parse(localStorage.questions));
     var iterableQuestions = JSON.parse(localStorage.questions);
     renderQuestions(iterableQuestions);
   } else {
-    console.log('inside the init else:');
     getInitialQuestions();
   }
 
@@ -75,20 +73,6 @@
   }
 
   function saveQuestions(questions) {
-    console.log('inside save method, looking at questions: ', questions);
     localStorage.questions = JSON.stringify(questions);
   }
 })();
-
-
-
-
-// try {
-//   var ref = firebase.database().ref();
-//   ref.once("value")
-//   .then(function(snapshot) {
-//     document.getElementById('render').innerHTML = JSON.stringify(snapshot.val(), null, 2);
-//   });
-// } catch (err) {
-//   console.error(err);
-// }
