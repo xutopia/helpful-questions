@@ -1,8 +1,8 @@
 var cacheName = 'helpful-questions';
 var dataCacheName = 'weatherData-v1';
 var filesToCache = [
-  // '/',
-  // '/index.html',
+  '/',
+  '/index.html',
   '/scripts/index.js',
   '/scripts/add.js',
   '/scripts/refresh.js',
@@ -12,7 +12,6 @@ var filesToCache = [
   '/assets/ic_refresh_white_24px.svg',
   '/__/firebase/4.7.0/firebase-app.js',
   '/__/firebase/4.7.0/firebase-database.js',
-  '/__/firebase/4.7.0/firebase-messaging.js'
 ];
 
 self.addEventListener('install', function(e) {
